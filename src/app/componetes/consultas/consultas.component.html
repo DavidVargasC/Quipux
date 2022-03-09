@@ -1,0 +1,9 @@
+<form  class="mt-5" [formGroup]="formLista">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Nombre de la lista</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="nombre">
+    </div>
+    <button (click)="buscar()" class="btn btn-success m-3" >Buscar</button>
+    <button class="btn btn-danger m-3" (click)="eliminar()">Eliminar</button>
+    <button class="btn btn-primary m-3" (click)="BuscarTodo()">Buscar todas las listas</button>
+  </form>
