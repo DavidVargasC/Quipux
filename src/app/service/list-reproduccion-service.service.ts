@@ -8,23 +8,21 @@ import {  Observable  } from 'rxjs';
   providedIn: 'root'
 })
 export class ListReproduccionServiceService {
-
-  url:string = 'http://localhost:8080/lists';
   
   constructor(private http: HttpClient) { }
 
-  get(name : string):Observable<ListaReproduccion>{
-    return this.http.get<ListaReproduccion>(this.url + '/' + name);
+  get(name : string):Observable<any>{
+    return this.http.get<any>('/list' + name);
 
   }
 
-  getTodos():Observable<ListaReproduccion>{
-    return this.http.get<ListaReproduccion>(this.url);
+  getTodos():Observable<any>{
+    return this.http.get<any>('/list');
 
   }
 
-  post(name : string):Observable<ListaReproduccion>{
-    return this.http.get<ListaReproduccion>(this.url);
+  post(name : string):Observable<any>{
+    return this.http.get<any>('/list');
   }
 
 }
