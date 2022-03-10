@@ -32,6 +32,8 @@ export class ConsultasComponent implements OnInit {
     });
   }
   eliminar(){
+    this.resultado = [];
+    this.resulGet = false;
     this.api.delete(this.formLista.controls['nombre'].value).subscribe(data=>{
       console.log(data);
     });

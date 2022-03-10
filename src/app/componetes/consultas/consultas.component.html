@@ -1,8 +1,8 @@
 <form  class="mt-5" [formGroup]="formLista">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Nombre de la lista</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="nombre">
-    </div>
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Nombre de la lista</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" formControlName="nombre">
+      </div>
     <button (click)="buscar()" class="btn btn-success m-3" >Buscar</button>
     <button class="btn btn-danger m-3" (click)="eliminar()">Eliminar</button>
     <button class="btn btn-primary m-3" (click)="BuscarTodo()">Buscar todas las listas</button>
@@ -26,7 +26,7 @@
     </a>
   </div>
   <div *ngIf="resultadoGet" class="list-group mt-2">
-    <a  class="list-group-item list-group-item-action active" aria-current="true">
+    <a  class="list-group-item list-group-item-action active">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Nombre lista : {{ resultadoGet.nombre }}</h5>
         <small></small>
@@ -39,7 +39,6 @@
         <small class="mb-1">Artists : {{ item.artista }}</small><br>
         <small class="mb-1">Año : {{ item.anno }}</small>
       </div>
-      
     </a>
   </div>
   

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Cancion } from '../models/Canciones';
 import { ListaReproduccion } from '../models/ListaReproduccion';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
 import {  Observable  } from 'rxjs';
@@ -21,8 +20,8 @@ export class ListReproduccionServiceService {
 
   }
 
-  post(name : string):Observable<any>{
-    return this.http.get<any>('lists/' + name);
+  post(listaReproduccion : ListaReproduccion):Observable<any>{
+    return this.http.post<any>('lists',listaReproduccion);
   }
 
   delete(name : string):Observable<any>{

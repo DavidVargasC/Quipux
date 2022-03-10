@@ -1,11 +1,51 @@
-<form  class="mt-5" [formGroup]="formLista" (ngSubmit) = submit(formLista.value)>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Nombre de la lista</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="nombre">
+<form class="mt-5" [formGroup]="formLista">
+    <div class="input-group input-group-default">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nombre de la lista :</span>
+        <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" formControlName="nombre" required>
     </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Descripcion</label>
-      <input type="textArea" class="form-control" id="exampleInputPassword1" formControlName="descripcion">
+    <div class="input-group input-group-default mt-4 mb-4">
+        <span class="input-group-text" id="inputGroup-sizing-default">Descripcion :</span>
+        <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" formControlName="descripcion">
     </div>
-    <button type="submit" class="btn btn-primary" >Guardar</button>
-  </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-8 card text-white bg-dark mb-3" style="max-width: 25rem;">
+                <form class="m-5" [formGroup]="formCanciones">
+                    <h5 class="mb-3">Añadir canciones : </h5>
+                    <div class="input-group input-group-default mb-3 mt-2">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Titulo : </span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="titulo">
+                    </div>
+                    <div class="input-group input-group-default mb-3 mt-2">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Artista : </span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="artista">
+                    </div>
+                    <div class="input-group input-group-default mb-3 mt-2">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Album : </span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="album">
+                    </div>
+                    <div class="input-group input-group-default mb-3 mt-2">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Año : </span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="anno">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="agregar()">Agregar</button>
+                </form>
+            </div>
+            <div class=" card text-white bg-secondary mb-3 row align-items-end" style="max-width: 40rem;">
+                <div *ngFor="let item of canciones">
+                    <div class="card-header">{{ item.titulo }} - {{ item.artista }} - {{ item.album }} - {{ item.anno }}</div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="submit()">Guardar</button>
+</form>
