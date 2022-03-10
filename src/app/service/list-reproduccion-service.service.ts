@@ -12,17 +12,20 @@ export class ListReproduccionServiceService {
   constructor(private http: HttpClient) { }
 
   get(name : string):Observable<any>{
-    return this.http.get<any>('/list' + name);
+    return this.http.get<any>('lists/' + name);
 
   }
 
   getTodos():Observable<any>{
-    return this.http.get<any>('/list');
+    return this.http.get<any>('lists');
 
   }
 
   post(name : string):Observable<any>{
-    return this.http.get<any>('/list');
+    return this.http.get<any>('lists/' + name);
   }
 
+  delete(name : string):Observable<any>{
+    return this.http.delete<any>('lists/' + name);
+  }
 }

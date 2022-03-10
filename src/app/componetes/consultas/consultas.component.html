@@ -7,3 +7,39 @@
     <button class="btn btn-danger m-3" (click)="eliminar()">Eliminar</button>
     <button class="btn btn-primary m-3" (click)="BuscarTodo()">Buscar todas las listas</button>
   </form>
+
+  <div class="list-group mt-2">
+    <a *ngFor="let list of resultado" class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Nombre lista : {{ list.nombre }}</h5>
+        <small></small>
+      </div>
+      <p class="mb-1"> Descripcion : {{ list.descripcion }}</p>
+      <small class="mr-2">Canciones</small>
+      <div *ngFor="let item of list.canciones">
+        <small class="mb-1">{{ item.titulo }}</small><br>
+        <small class="mb-1">Album : {{ item.album }}</small><br>
+        <small class="mb-1">Artists : {{ item.artista }}</small><br>
+        <small class="mb-1">Año : {{ item.anno }}</small>
+      </div>
+      
+    </a>
+  </div>
+  <div *ngIf="resultadoGet" class="list-group mt-2">
+    <a  class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Nombre lista : {{ resultadoGet.nombre }}</h5>
+        <small></small>
+      </div>
+      <p class="mb-1"> Descripcion : {{ resultadoGet.descripcion }}</p>
+      <small class="mr-2">Canciones</small>
+      <div *ngFor="let item of resultadoGet.canciones">
+        <small class="mb-1">{{ item.titulo }}</small><br>
+        <small class="mb-1">Album : {{ item.album }}</small><br>
+        <small class="mb-1">Artists : {{ item.artista }}</small><br>
+        <small class="mb-1">Año : {{ item.anno }}</small>
+      </div>
+      
+    </a>
+  </div>
+  

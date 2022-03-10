@@ -10,6 +10,8 @@ import { ListReproduccionServiceService } from '../../service/list-reproduccion-
 export class ConsultasComponent implements OnInit {
 
   resultado: any;
+  resultadoGet: any;
+  resulGet = false;
   formLista = new FormGroup({
     nombre: new FormControl('')
   }
@@ -21,17 +23,26 @@ export class ConsultasComponent implements OnInit {
   }
 
   buscar(){
+    this.resultado = [];
     this.api.get(this.formLista.controls['nombre'].value).subscribe(data=>{
-      this.resultado = data;
+      console.log(data);
+      this.resultadoGet = data;
+      this.resulGet = true;
+      console.log(this.resultado)
     });
-    console.log('buscar', this.formLista.controls['nombre'].value)
   }
   eliminar(){
+    this.api.delete(this.formLista.controls['nombre'].value).subscribe(data=>{
+      console.log(data);
+    });
     console.log('eliminar')
   }
   BuscarTodo(){
+    this.resulGet = false;
     this.api.getTodos().subscribe(data=>{
+      console.log(data);
       this.resultado = data;
+      console.log(this.resultado)
     });
     console.log('BuscarTodo')
   }
